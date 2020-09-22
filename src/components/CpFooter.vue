@@ -1,0 +1,23 @@
+<template>
+  <v-footer
+      absolute
+      class="font-weight-medium info"
+    >
+      <v-col
+        class="text-center"
+        cols="12"
+      >
+        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+      </v-col>
+    </v-footer>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
