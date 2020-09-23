@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <nav-bar/>
-    <v-main>
+    <v-main class="my-5">
       <router-view></router-view>
     </v-main>
     <cp-footer/>

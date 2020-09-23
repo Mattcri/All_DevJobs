@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     jobs: [],
     job: undefined,
-    searchLocation: undefined
+    searchLocation: undefined,
+    searchLanguaje: undefined
   },
   mutations: {
     GET_JOBS (state, jobs) {
@@ -17,16 +18,21 @@ export default new Vuex.Store({
     GET_JOB (state, job) {
       state.job = job
     },
-    UPDATE (state, msg) {
+    UPDATE_LOCATION (state, msg) {
       state.searchLocation = msg
+    },
+    UPDATE_LANGUAJE (state, languaje) {
+      state.searchLanguaje = languaje
     }
   },
   actions: {
     getJobs({commit, state}) {
-      Axios.get(`https://corsanywhere.herokuapp.com/https://jobs.github.com/positions.json?location=${state.searchLocation}`)
+      Axios.get(`https://corsanywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${state.searchLanguaje}&location=${state.searchLocation}`)
         .then(response => {
           commit('GET_JOBS', response.data)
         })
+        state.searchLanguaje = undefined
+        state.searchLocation = undefined
     },
     // getLocation({dispatch, state }) {
     //   Axios.get('https://jobs.github.com/positions.json?page=1&location=' + state.searchLocation)
