@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     jobs: [],
     searchLocation: undefined,
-    searchLanguaje: undefined
+    searchLanguaje: undefined,
+    overlay: false
   },
   mutations: {
     GET_JOBS (state, jobs) {
@@ -20,21 +21,31 @@ export default new Vuex.Store({
     UPDATE_LANGUAJE (state, languaje) {
       state.searchLanguaje = languaje
     },
+    OVERLAY_TRUE (state) {
+      state.overlay = true
+    },
+    OVERLAY_FALSE (state) {
+      state.overlay = false
+    }
   },
   actions: {
     getJobs({commit}) {
+      commit('OVERLAY_TRUE')
       Axios.get('https://corsanywhere.herokuapp.com/https://jobs.github.com/positions.json')
         .then(response => {
           commit('GET_JOBS', response.data)
+          commit('OVERLAY_FALSE')
         })
-        // state.searchLanguaje = undefined
-        // state.searchLocation = undefined
     },
     getFilterJobs({commit, state}) {
+      commit('OVERLAY_TRUE')
       Axios.get(`https://corsanywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${state.searchLanguaje}&location=${state.searchLocation}`)
         .then(response => {
           commit('GET_JOBS', response.data)
+          commit('OVERLAY_FALSE')
         })
+        // state.searchLanguaje = ''
+        // state.searchLocation = ''
     }
 
 

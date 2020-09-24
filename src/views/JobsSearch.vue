@@ -42,7 +42,7 @@ export default {
     CpSearch
   },
   computed: {
-    ...mapState(['jobs'])
+    ...mapState(['jobs', 'overlay'])
   },
   methods: {
     ...mapActions(['getJobs', 'getFilterJobs']),
