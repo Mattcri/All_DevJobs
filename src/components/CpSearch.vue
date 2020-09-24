@@ -27,6 +27,7 @@
 </template>
 
 <script>
+
 export default {
   name: "CpSearch",
   data: () => ({
@@ -42,7 +43,7 @@ export default {
   }),
   methods: {
     search() {
-      this.$router.push("/jobs");
+      this.$emit('searchJobs')
     },
   },
   computed: {

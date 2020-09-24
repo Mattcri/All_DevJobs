@@ -1,6 +1,5 @@
 <template>
   <v-footer
-      absolute
       class="font-weight-medium info"
     >
       <v-col

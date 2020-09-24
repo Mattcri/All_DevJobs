@@ -8,7 +8,7 @@
               <v-text-field class="my-4" label="Lenguaje" v-model="languaje" placeholder="c++ o javascript" :rules="rulesLanguaje" hide-details="auto" @keyup.enter="search" required outlined></v-text-field>
             <!-- </div> -->
             <!-- <div class="wrap-btn"> -->
-              <v-btn class="" @click="search" color="success" :disabled="!valid">
+              <v-btn class="" to="/jobs" @click="search" color="success" :disabled="!valid">
                 <v-icon>mdi-magnify</v-icon>Buscar
               </v-btn>
             <!-- </div> -->
@@ -20,7 +20,7 @@
 
 <script>
 // @ is an alias to /src
-import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: "Home",
@@ -36,8 +36,9 @@ export default {
       ],
   }),
   methods: {
+    ...mapActions(['getFilterJobs']),
     search () {
-      this.$router.push('/jobs')
+      this.getFilterJobs()
     },
   },
   computed: {
@@ -64,7 +65,5 @@ export default {
 </script>
 
 <style scoped>
-  /* .wrap-inputs {
-    width: 90%;
-  } */
+
 </style>
