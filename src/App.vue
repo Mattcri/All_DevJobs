@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <nav-bar/>
+    <nav-bar @changeMode="changeColor" :darkMode="darkMode" />
     <v-main class="my-5">
       <router-view></router-view>
     </v-main>
@@ -14,14 +14,18 @@ import CpFooter from '@/components/CpFooter'
 
 export default {
   name: 'App',
-
   components: {
     NavBar,
     CpFooter
   },
-
   data: () => ({
-    //
+    darkMode: false,
   }),
+  methods: {
+    changeColor() {
+      this.darkMode = !this.darkMode
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+    }
+  }
 };
 </script>

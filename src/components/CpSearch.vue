@@ -1,5 +1,5 @@
 <template>
-  <v-form v-model="valid">
+  <v-form v-model="valid" >
     <v-text-field
       class="my-4"
       label="Locación"

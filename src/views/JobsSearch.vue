@@ -8,8 +8,9 @@
       <v-card class="mx-auto" max-width="95%">
         <v-card-title :class="'shadow'" class="mb-1">{{job.title}}</v-card-title>
         <v-img
+          contain
           width="100%"
-          height="200px"
+          height="220px"
           :src="job.company_logo ? job.company_logo : emptyImg"
         >
         </v-img>
@@ -71,6 +72,7 @@ export default {
   }
   .shadow {
     box-shadow: 0 4px 3px -2px grey;
-    
   }
+
+
 </style>
