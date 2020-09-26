@@ -29,13 +29,15 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    getJobs({commit}) {
+    getJobs({commit, state}) {
       commit('OVERLAY_TRUE')
       Axios.get('https://corsanywhere.herokuapp.com/https://jobs.github.com/positions.json')
         .then(response => {
           commit('GET_JOBS', response.data)
           commit('OVERLAY_FALSE')
         })
+        state.searchLanguaje = undefined
+        state.searchLocation = undefined
     },
     getFilterJobs({commit, state}) {
       commit('OVERLAY_TRUE')
@@ -44,8 +46,7 @@ export default new Vuex.Store({
           commit('GET_JOBS', response.data)
           commit('OVERLAY_FALSE')
         })
-        // state.searchLanguaje = ''
-        // state.searchLocation = ''
+        
     }
 
 

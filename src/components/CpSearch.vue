@@ -20,7 +20,7 @@
       required
       outlined
     ></v-text-field>
-    <v-btn class @click="search" color="indigo lighten-1" :disabled="!valid">
+    <v-btn  @click="search" color="indigo lighten-1" :disabled="!valid">
       Buscar<v-icon class="mx-2">mdi-magnify</v-icon>
     </v-btn>
   </v-form>

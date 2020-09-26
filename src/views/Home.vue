@@ -1,13 +1,9 @@
 <template>
-  
   <v-container fluid :style="{padding: '0'}">
-    
     <v-img
     src="../assets/dev.png"
-    
     >
     </v-img>
-    
     <div class="grid">
       <div class="grid__title my-3">
         <h1>Encuentra tus oportunidades en el mundo Tech</h1>
@@ -26,12 +22,13 @@
     </div>
     <div class="content">
       <div class="content__text">
-        <p><b>All DevJobs</b> es un portal de empleo construido en VueJS especializado en la industria Tech que conecta a los nuevos talentos con las mejores oportunidades laborales disponibles en la API de GitHub. Selecionna tu lenguaje, libreria o framework favorito y explora nuevos horizontes</p>
-        <p>Nota: Los filtros de búsqueda solo funcionan con tecnologías de programación validas</p>
+        <p><b>All DevJobs</b> es un portal de empleo construido en VueJS especializado en la industria Tech que conecta a los nuevos talentos con las mejores oportunidades laborales disponibles en la API de GitHub. Selecionna tu lenguaje, libreria o framework favorito y explora nuevos horizontes en el país o cuidad de tu preferencia.</p>
+        <p>Actualmente puedes encontrar muchas posiciones de trabajo en <strong>remote</strong> para aumentar tus posibilidades.</p>
+        <p>Nota: Los filtros de búsqueda solo funcionan con tecnologías de programación validas.</p>
       </div>
       <div class="content__link">
-        <h4>Revisa las últimas publicaciones de la semana dando click en el siguiente botón</h4>
-        <v-btn to="/jobs" @click="latestJobs" width="180px" large color="indigo lighten-1" class="my-1 btn-align" >
+        <h4>Revisa las últimas publicaciones de la semana dando click en el siguiente botón.</h4>
+        <v-btn @click="latestJobs" width="180px" large color="indigo lighten-1" class="my-1 btn-align" >
           Nuevas ofertas
         </v-btn>
       </div>
@@ -60,6 +57,7 @@ export default {
   methods: {
     ...mapActions(['getFilterJobs', 'getJobs']),
     latestJobs() {
+      this.$router.push('/latestjobs')
       this.getJobs();
     },
     search () {
