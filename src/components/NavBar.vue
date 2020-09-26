@@ -1,10 +1,7 @@
 <template>
-  <v-app-bar app color="primary" dark>
+  <v-app-bar app color="indigo" >
   <v-container class="nav-items">
-      <v-btn to="/">Home</v-btn>
-      <v-btn to="/jobs" @click="latestJobs">
-        <v-icon>mdi-file-document</v-icon>Últimas publicaciones de empleo
-      </v-btn>
+      <v-btn color="light-blue lighten-5" class="nav-items__title" to="/" text>All DevJobs</v-btn>
       <v-btn text @click="changeMode">
         <v-icon v-if="darkMode">mdi-set-center-right</v-icon>
         <v-icon v-else >mdi-set-left-center</v-icon>
@@ -24,10 +21,6 @@ export default {
     darkMode: Boolean
   },
   methods: {
-    ...mapActions(["getJobs"]),
-    latestJobs() {
-      this.getJobs();
-    },
     changeMode() {
       this.$emit('changeMode')
     }
@@ -36,8 +29,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
+
   .nav-items {
     display: flex;
     justify-content: space-between;
+    &__title {
+      font-family: 'Orbitron', sans-serif;
+      font-style: italic;
+    }
   }
 </style>

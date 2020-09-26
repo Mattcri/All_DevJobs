@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <nav-bar @changeMode="changeColor" :darkMode="darkMode" />
-    <v-main class="my-5">
+    <v-main class="">
       <router-view></router-view>
     </v-main>
     <cp-footer/>
@@ -29,3 +29,8 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" >
+
+
+</style>
