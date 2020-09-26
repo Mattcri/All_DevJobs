@@ -67,15 +67,27 @@ export default {
   .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    @media (max-width: 560px) {
+      grid-template-rows: repeat(2, 0.5fr);
+    }
     &__search {
       grid-column: 1/4;
       position: sticky;
       position: -webkit-sticky;
       position: -moz-sticky;
       top: 80px;
+      @media (max-width: 560px) {
+        grid-column: 3/11;
+        position: relative;
+        grid-row: 1/2;
+      }
     }
     &__jobs {
       grid-column: 5/13;
+      @media (max-width: 560px) {
+        grid-column: 2/12;
+        grid-row: 2/3;
+      }
     }
   }
   .shadow {
