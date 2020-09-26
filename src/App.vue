@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <nav-bar @changeMode="changeColor" :darkMode="darkMode" />
-    <v-main class="">
+    <v-main>
       <router-view></router-view>
     </v-main>
     <cp-footer/>

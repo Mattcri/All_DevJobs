@@ -55,10 +55,6 @@ export default {
   created() {
     this.getFilterJobs()
   },
-  // beforeMount() {
-  //   this.getJobs()
-  // }
- 
 
 }
 </script>
