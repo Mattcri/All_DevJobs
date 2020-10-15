@@ -4,6 +4,9 @@
       <div class="grid__search" >
         <cp-search @searchJobs="newJobs" />
       </div>
+      <div class="grid__jobs my-4" v-if="jobs.length === 0" cols="12" md="8">
+        <h2 class="mx-auto">Ups!! No se encontraron resultados</h2>
+      </div>
       <div class="grid__jobs my-4" v-for="job in jobs" :key="job.id" cols="12" md="8" >
         <v-card class="mx-auto" max-width="95%">
           <v-card-title :class="'shadow'" class="mb-1">{{job.title}}</v-card-title>
@@ -63,9 +66,6 @@ export default {
   .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    @media (max-width: 560px) {
-      grid-template-rows: repeat(2, 0.5fr);
-    }
     &__search {
       grid-column: 1/4;
       position: sticky;
@@ -74,15 +74,14 @@ export default {
       top: 80px;
       @media (max-width: 560px) {
         grid-column: 3/11;
-        position: relative;
-        grid-row: 1/2;
+        position: inherit;
       }
     }
     &__jobs {
       grid-column: 5/13;
       @media (max-width: 560px) {
+        padding-top: 2rem;
         grid-column: 2/12;
-        grid-row: 2/3;
       }
     }
   }
